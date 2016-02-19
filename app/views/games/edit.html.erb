@@ -21,6 +21,9 @@
 
 <% @test = true %>
 
+<% if @use == 1 then if @divVar == "1" or "3" or "7" or "9" then @move = 5 and @test = false end end %>
+<% if @use == 1 then if @divVar == "5" then @move = 1 and @test = false end end %>
+
 <%= while @test == true do %>
 <%= @move = 1 + rand(9) %>
 <%= if @move != @divVar.to_i then @test = false end %>
