@@ -1,0 +1,77 @@
+<p> Edit </p>
+
+<p> Show Game </p>
+
+
+<%= form_for @game do |f| %>
+
+<%= @use = @game.count + 1 %>
+<%= f.hidden_field :count, value: @use %>
+
+
+<%= if @divVar == "1"  then (f.hidden_field :one, value: 2) end %>
+<%= if @divVar == "2"  then (f.hidden_field :two, value: 2) end  %>
+<%= if @divVar == "3"  then (f.hidden_field :three, value: 2) end  %>
+<%= if @divVar == "4"  then (f.hidden_field :four, value: 2) end %>
+<%= if @divVar == "5"  then (f.hidden_field :five, value: 2) end %>
+<%= if @divVar == "6"  then (f.hidden_field :six, value: 2) end %>
+<%= if @divVar == "7"  then (f.hidden_field :seven, value: 2) end %>
+<%= if @divVar == "8"  then (f.hidden_field :eight, value: 2) end %>
+<%= if @divVar == "9"  then (f.hidden_field :nine, value: 2) end %>
+
+<% @test = true %>
+
+<%= while @test == true do %>
+<%= @move = 1 + rand(9) %>
+<%= if @move != @divVar.to_i then @test = false end %>
+<%= if @move == 1  then if @game.one != 1 then @test = true end  end %>
+<%= if @move == 2  then if @game.two != 1 then @test = true end  end %>
+<%= if @move == 3  then if @game.three != 1 then @test = true end  end %>
+<%= if @move == 4  then if @game.four != 1 then @test = true end  end %>
+<%= if @move == 5  then if @game.five != 1 then @test = true end  end %>
+<%= if @move == 6  then if @game.six != 1 then @test = true end  end %>
+<%= if @move == 7  then if @game.seven != 1 then @test = true end  end %>
+<%= if @move == 8  then if @game.eight != 1 then @test = true end  end %>
+<%= if @move == 9  then if @game.nine != 1 then @test = true end  end %>
+<%= if @game.count == 4  then @test = false end %>
+<% end %>
+
+
+
+
+<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+
+
+<table>
+<tbody>
+<tr>
+	<td><div id = "1"><%= @game.one %></div></td>
+	<td><div id = "2"><%= @game.two %></div></td>
+	<td><div id = "3"><%= @game.three %></div></td>
+</tr>
+<tr>
+	<td><div id = "4"><%= @game.four %></div></td>
+	<td><div id = "5"><%= @game.five %></div></td>
+	<td><div id = "6"><%= @game.six %></div></td>
+</tr>
+<tr>
+	<td><div id = "7"><%= @game.seven %></div></td>
+	<td><div id = "8"><%= @game.eight %></div></td>
+	<td><div id = "9"><%= @game.nine %></div></td>
+</tr>
+</tbody>
+</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,70 @@
+<p> Show Game </p>
+
+<% if @game.one == 3 and @game.two == 3 and @game.three == 3 then @game.turn = 3 end %>
+<% if @game.four == 3 and @game.five == 3 and @game.six == 3 then @game.turn = 3 end %>
+<% if @game.seven == 3 and @game.eight == 3 and @game.nine == 3 then @game.turn = 3 end %>
+<% if @game.one == 3 and @game.five == 3 and @game.eight == 3 then @game.turn = 3 end %>
+<% if @game.two == 3 and @game.four == 3 and @game.seven == 3 then @game.turn = 3 end %>
+<% if @game.three == 3 and @game.five == 3 and @game.nine == 3 then @game.turn = 3 end %>
+<% if @game.one == 3 and @game.five == 3 and @game.nine == 3 then @game.turn = 3 end %>
+<% if @game.three == 3 and @game.five == 3 and @game.seven == 3 then @game.turn = 3 end %>
+
+<% if @game.one == 2 and @game.two == 2 and @game.three == 2 then @game.turn = 2 end %>
+<% if @game.four == 2 and @game.five == 2 and @game.six == 2 then @game.turn = 2 end %>
+<% if @game.seven == 2 and @game.eight == 2 and @game.nine == 2 then @game.turn = 2 end %>
+<% if @game.one == 2 and @game.five == 2 and @game.eight == 2 then @game.turn = 2 end %>
+<% if @game.two == 2 and @game.four == 2 and @game.seven == 2 then @game.turn = 2 end %>
+<% if @game.three == 2 and @game.five == 2 and @game.nine == 2 then @game.turn = 2 end %>
+<% if @game.one == 2 and @game.five == 2 and @game.nine == 2 then @game.turn = 2 end %>
+<% if @game.three == 2 and @game.five == 2 and @game.seven == 2 then @game.turn = 2 end %>
+<% if @game.turn == 1 %>
+<table>
+<tbody>
+<tr>
+	<td><div id = "1"><%= if @game.one == 1 then link_to @game.one, { :controller => 'games', :action=>"edit", :data=> "1" } elsif @game.one == 2 then "x" else "o" end %></div></td>
+	<td><div id = "2"><%= if @game.two == 1 then link_to @game.two, { :controller => 'games', :action=>"edit", :data=> "2" } elsif @game.two == 2 then "x" else "o" end %></div></td>
+	<td><div id = "3"><%= if @game.three == 1 then link_to @game.three, { :controller => 'games', :action=>"edit", :data=> "3" } elsif @game.three == 2 then "x" else "o" end %></div></td>
+</tr>
+<tr>
+	<td><div id = "4"><%= if @game.four == 1 then link_to @game.four, { :controller => 'games', :action=>"edit", :data=> "4" } elsif @game.four == 2 then "x" else "o" end %></div></td>
+	<td><div id = "5"><%= if @game.five == 1 then link_to @game.five, { :controller => 'games', :action=>"edit", :data=> "5"} elsif @game.five == 2 then "x" else "o" end %></div></td>
+	<td><div id = "6"><%= if @game.six == 1 then link_to @game.six, { :controller => 'games', :action=>"edit", :data=> "6" } elsif @game.six == 2 then "x" else "o" end %></div></td>
+</tr>
+<tr>
+	<td><div id = "7"><%= if @game.seven == 1 then link_to @game.seven, { :controller => 'games', :action=>"edit", :data=> "7" } elsif @game.seven == 2 then "x" else "o" end %></div></td>
+	<td><div id = "8"><%= if @game.eight == 1 then link_to @game.eight, { :controller => 'games', :action=>"edit", :data=> "8" } elsif @game.eight == 2 then "x" else "o" end %></div></td>
+	<td><div id = "9"><%= if @game.nine == 1 then link_to @game.nine, { :controller => 'games', :action=>"edit", :data=> "9" } elsif @game.nine == 2 then "x" else "o" end %></div></td>
+</tr>
+</tbody>
+</table>
+
+<% else %>
+<table>
+<tbody>
+<tr>
+	<td><div id = "1"><%= @game.one %></div></td>
+	<td><div id = "2"><%= @game.two %></div></td>
+	<td><div id = "3"><%= @game.three %></div></td>
+</tr>
+<tr>
+	<td><div id = "4"><%= @game.four %></div></td>
+	<td><div id = "5"><%= @game.five %></div></td>
+	<td><div id = "6"><%= @game.six %></div></td>
+</tr>
+<tr>
+	<td><div id = "7"><%= @game.seven %></div></td>
+	<td><div id = "8"><%= @game.eight %></div></td>
+	<td><div id = "9"><%= @game.nine %></div></td>
+</tr>
+</tbody>
+</table>
+
+<% end %>
+
+<% if @game.turn == 2 %>
+<%= "X Wins" %>
+<% end %>
+<% if @game.turn == 3 %>
+<%= "O Wins" %>
+<% end %>
+
