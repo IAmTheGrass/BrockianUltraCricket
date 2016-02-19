@@ -1,5 +1,6 @@
 <p> Show Game </p>
 
+<% #handles if game has been won by "bot" %>
 <% if @game.one == 3 and @game.two == 3 and @game.three == 3 then @game.turn = 3 end %>
 <% if @game.four == 3 and @game.five == 3 and @game.six == 3 then @game.turn = 3 end %>
 <% if @game.seven == 3 and @game.eight == 3 and @game.nine == 3 then @game.turn = 3 end %>
@@ -9,6 +10,7 @@
 <% if @game.one == 3 and @game.five == 3 and @game.nine == 3 then @game.turn = 3 end %>
 <% if @game.three == 3 and @game.five == 3 and @game.seven == 3 then @game.turn = 3 end %>
 
+<% #handles if game has been won by player ( somehow :p ) %>
 <% if @game.one == 2 and @game.two == 2 and @game.three == 2 then @game.turn = 2 end %>
 <% if @game.four == 2 and @game.five == 2 and @game.six == 2 then @game.turn = 2 end %>
 <% if @game.seven == 2 and @game.eight == 2 and @game.nine == 2 then @game.turn = 2 end %>
@@ -17,7 +19,10 @@
 <% if @game.three == 2 and @game.six == 2 and @game.nine == 2 then @game.turn = 2 end %>
 <% if @game.one == 2 and @game.five == 2 and @game.nine == 2 then @game.turn = 2 end %>
 <% if @game.three == 2 and @game.five == 2 and @game.seven == 2 then @game.turn = 2 end %>
+
+<% #handles if game has not been won %>
 <% if @game.turn == 1 %>
+<% #displays board + handles player move input %>
 <table>
 <tbody>
 <tr>
@@ -38,6 +43,7 @@
 </tbody>
 </table>
 
+<% #handles display of board with info 4 testing if game won %>
 <% else %>
 <table>
 <tbody>
@@ -58,9 +64,9 @@
 </tr>
 </tbody>
 </table>
-
 <% end %>
 
+<% #handles display of who won if winner exists %>
 <% if @game.turn == 2 %>
 <%= "X Wins" %>
 <% end %>
